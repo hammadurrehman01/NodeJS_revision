@@ -2,8 +2,51 @@ import express from "express";
 import usersData from "./MOCK_DATA.json" assert { type: "json" };
 import fs from "fs";
 import path from "path";
+import { connect, model, Schema } from "mongoose";
 
 const app = express();
+
+
+export const connectDB = async () => {
+    try {
+        const connection = await connect("mongodb://127.0.0.1:27017/practice");
+        if (connection) {
+            console.log("MONGO Connected!")
+        } else {
+            console.log("Mongo was not be able to connect yet")
+        }
+    } catch (error) {
+        console.log(error.message)
+
+    }
+}
+connectDB();
+
+const userSchema = new Schema({
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    gender: {
+        type: String,
+        required: true
+    },
+    age: {
+        type: Number,
+        required: true
+    },
+});
+
+const User = model("user", userSchema);
+
 
 app.use(express.json());
 
