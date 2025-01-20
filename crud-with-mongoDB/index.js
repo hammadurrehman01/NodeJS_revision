@@ -7,7 +7,7 @@ connectDB();
 
 app.use(express.json());
 
-app.use("/users", userRoute)
+app.use("/users", userRoute);
 
 const PORT = 8000;
 app.listen(PORT, () => {

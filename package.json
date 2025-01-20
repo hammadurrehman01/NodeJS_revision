@@ -4,13 +4,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon crud-with-mongoDB/index.js"
+    "dev": "nodemon Url-shortener/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.21.1",
     "mongoose": "^8.9.3",
     "nodemon": "^3.1.7",
